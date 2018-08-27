@@ -17,7 +17,7 @@ setup(
     description="Instagram api wrapper",
     long_description=read('README.md'),
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/YevgeniiKaidashov/instagram-api",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
