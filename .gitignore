@@ -1,0 +1,15 @@
+.DS_Store
+*.pyc
+__pycache__
+dist
+build
+*.egg-info
+
+# Test state / virtualenvs
+.tox
+.coverage
+coverage.xml
+nosetests.xml
+
+# IntelliJ / PyCharm IDE
+.idea/
