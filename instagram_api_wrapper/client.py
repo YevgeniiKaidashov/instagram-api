@@ -1,5 +1,7 @@
 import requests
+
 import json
+
 from instagram_api_wrapper.exceptions import InstagramApiError
 
 
@@ -27,7 +29,7 @@ class InstagramApi:
         if response.status_code == 200:
             return json.loads(response.text)
         else:
-            raise InstagramApiError("Request error. Status code {}".format(str(response.status_code)))
+            raise InstagramApiError("Request error. Status code {}".format(response.status_code))
 
     def _prepare_url(self, url):
         return '{}/{}'.format(self.host.rstrip('/'), url.lstrip('/'))
