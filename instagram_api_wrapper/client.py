@@ -1,6 +1,6 @@
-import requests
-
 import json
+
+import requests
 
 from instagram_api_wrapper.exceptions import InstagramApiError
 
