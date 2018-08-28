@@ -1,4 +1,3 @@
-class InvalidRequestType(Exception):
-
+class InstagramApiError(Exception):
     def __init__(self, message):
         self.message = message
