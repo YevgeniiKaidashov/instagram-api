@@ -11,13 +11,14 @@ def read(fname):
 
 
 setup(
-    name="instagram-api",
+    name="instagram_api_wrapper",
     version="1.0.0",
     author="Yevgenii Kaidashov",
+    author_email='zhenya.kaidashov@gmail.com',
     description="Instagram api wrapper",
     long_description=read('README.md'),
     long_description_content_type="text/markdown",
-    url="https://github.com/YevgeniiKaidashov/instagram-api",
+    url="https://github.com/YevgeniiKaidashov/instagram_api_wrapper",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

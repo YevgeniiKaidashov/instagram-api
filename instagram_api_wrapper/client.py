@@ -1,8 +1,9 @@
 import requests
 import json
+from instagram_api_wrapper.exceptions import InstagramApiError
 
 
-class InstagramApi(object):
+class InstagramApi:
     host = 'https://api.instagram.com/v1'
 
     class ApiEndpoints(object):
@@ -13,12 +14,12 @@ class InstagramApi(object):
         self.access_token = access_token
 
     def get_user_info(self):
-        return self._get_request(url=self.ApiEndpoints.user_info, params=self._prepare_data())
+        return self._send_request(url=self.ApiEndpoints.user_info, params=self._prepare_data())
 
     def get_user_media(self, data=None):
-        return self._get_request(url=self.ApiEndpoints.user_media, params=self._prepare_data(data))
+        return self._send_request(url=self.ApiEndpoints.user_media, params=self._prepare_data(data))
 
-    def _get_request(self, url, params=None):
+    def _send_request(self, url, params=None):
         params = params or {}
         request_url = self._prepare_url(url=url)
         response = requests.get(request_url, params=params)
@@ -26,7 +27,7 @@ class InstagramApi(object):
         if response.status_code == 200:
             return json.loads(response.text)
         else:
-            raise InstagramApi("Request error. Status code" + str(response.status_code))
+            raise InstagramApiError("Request error. Status code {}".format(str(response.status_code)))
 
     def _prepare_url(self, url):
         return '{}/{}'.format(self.host.rstrip('/'), url.lstrip('/'))
